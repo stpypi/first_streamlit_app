@@ -4,7 +4,7 @@ import streamlit
 
 streamlit.title("My parents new healthy Diner")
 streamlit.header("Breakfast Menu")
-steamlit.text("Idly Sambar")
-steamlit.text("Poha")
-steamlit.text("Sandwitch")
-steamlit.text("Oat Milk")
+streamlit.text("Idly Sambar")
+streamlit.text("Poha")
+streamlit.text("Sandwitch")
+streamlit.text("Oat Milk")
