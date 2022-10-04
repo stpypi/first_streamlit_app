@@ -55,8 +55,6 @@ except URLError as e:
 # normalize the json version of the response 
 # and streamlit displays the data from the fruityvice_normalized variable. 
 
-# streamlit.stop()
-
 #my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 #my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
@@ -78,8 +76,10 @@ if streamlit.button('Get Fruit Load List'):
    #streamlit.text(my_data_rows)
    streamlit.dataframe(my_data_rows)
 
+streamlit.stop()
 fruit_to_add = streamlit.text_input('What fruit would you like add?','Jackfruit')
 streamlit.write('Thanks for adding ', fruit_to_add)
+
 
 my_cur.execute("insert into fruit_load_list values('from streamlit')")
 
