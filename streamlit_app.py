@@ -3,6 +3,8 @@
 import streamlit 
 import pandas
 import requests
+import snowflake.connector
+from urllib.error import URLError
 
 streamlit.title("My parents new healthy Diner")
 streamlit.header("Breakfast Menu")
@@ -12,7 +14,6 @@ streamlit.text(" 🥑 Sandwitch")
 streamlit.text(" 🍞 Oat Milk")
 streamlit.text(" 🐔 Hard-Boiled Free-Range Egg ")
 
-   
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
@@ -41,8 +42,8 @@ streamlit.header("Fruityvice Fruit Advice!")
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # and streamlit displays the data from the fruityvice_normalized variable. 
 streamlit.dataframe(fruityvice_normalized)
+streamlit.stop()
 
-import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
